@@ -16,12 +16,12 @@ const LoginScreen = ({ navigation }) => {
       Alert.alert("Error", "Please fill in both email and password");
       return;
     }
-  
     try {
       const result = await handleLogin(email, password);
       if (result.success) {
         Alert.alert("Success", "Logged in successfully");
         login(result.data);
+        navigation.navigate('Principal');
       } else {
         Alert.alert("Error", result.error);
       }

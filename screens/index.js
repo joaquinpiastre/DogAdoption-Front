@@ -1,9 +1,14 @@
 import LoginScreen from "./LoginScreen";
 import RegisterScreen from "./RegisterScreen";
-import HomeScreen from "./HomeScreen";
+import AddScreen from "./AddScreen";
+import ProfileScreen  from "./ProfileScreen";
+import PrincipalScreen from "./PrincipalScreen";
 
 export {
     LoginScreen,
     RegisterScreen,
-    HomeScreen,
+    ProfileScreen,
+    PrincipalScreen,
+    AddScreen,
+
 }

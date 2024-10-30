@@ -19,17 +19,14 @@ const RegisterScreen = ({ navigation }) => {
   
     try {
       const response = await registerUser(name, email, password);
-  
-      if (response.status === 200) {
-        Alert.alert("Success", "User registered successfully");
+      if (response.success) {  // Cambiado para verificar `response.success`
+        Alert.alert("Success", response.message);
         navigation.navigate('Login');
+      } else {
+        Alert.alert("Error", response.error || "Something went wrong, please try again");
       }
     } catch (error) {
-      if (error.response && error.response.status === 400) {
-        Alert.alert("Error", error.response.data.message || "User already exists");
-      } else {
-        Alert.alert("Error", "Something went wrong, please try again");
-      }
+      Alert.alert("Error", error.message || "Something went wrong, please try again");
     }
   };
   

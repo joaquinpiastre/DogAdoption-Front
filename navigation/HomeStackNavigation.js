@@ -1,9 +1,7 @@
 import React from 'react';
-import { View, Button, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '../screens/HomeScreen';
-import RegisterScreen from '../screens/RegisterScreen';
-import LoginScreen from '../screens/LoginScreen';
+import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
 
@@ -11,21 +9,12 @@ const HomeStackNavigation = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image 
-        source={require('../assets/Adoptame.jpg')}
-        style={{
-          width: '100%',
-          height: 500, 
-          borderRadius: 25,
-        }}
+        source={require('../assets/AdoptMe.png')}
+        style={styles.image}
       />
-      <Button
-        title="Go to Login" 
-        onPress={() => navigation.navigate('Login')}
-      />
-    <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Login" component={LoginScreen} />
-    </Stack.Navigator>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Auth')}>
+        <Text style={styles.buttonText}>Go to Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -35,35 +24,33 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFDF6',
+    backgroundColor: Colors.WHITE,
     padding: 20,
   },
-  Image: {
-    width: 20,
+  image: {
+    width: 350, // Aumenta el ancho de la imagen
+    height: 350, // Aumenta la altura de la imagen
     borderRadius: 25,
+    marginBottom: 20,
+    marginTop: -50, // Mueve la imagen hacia arriba
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 10,
-  },
-  listContainer: {
-    flex: 1,
-    width: '100%',
-    maxHeight: '60%',
-    backgroundColor: '#DDDDDD',
-    borderRadius: 15,
-    shadowColor: '#000',
+  button: {
+    backgroundColor: '#ffab00',
+    borderRadius: 25, 
+    paddingVertical: 15, 
+    paddingHorizontal: 30, 
+    alignItems: 'center',
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5, 
+    marginTop: 90, 
   },
-  flashListContent: {
-    paddingVertical: 5,
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
