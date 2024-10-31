@@ -38,9 +38,7 @@ const ProfileScreen = () => {
     try {
       const response = await updateUserProfile(updatedData);
       if (response) {
-        // Cierra el modal primero
         setModalVisible(false);
-        // Navega a AddScreen después de cerrar el modal
         navigation.navigate('Profile');
         Alert.alert("Success", "Profile updated successfully");
       }

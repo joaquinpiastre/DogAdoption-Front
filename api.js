@@ -6,9 +6,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // Ip facultad 10.51.11.138
 // Ip casa 192.168.0.102
 
-const API_AUTH_BASE_URL = 'http://192.168.0.102:8080/auth';
-const API_USER_BASE_URL = 'http://192.168.0.102:8080/users';
-const API_DOG_BASE_URL = 'http://192.168.0.102:8080/dogs';
+const API_AUTH_BASE_URL = 'http://10.51.11.138:8080/auth';
+const API_USER_BASE_URL = 'http://10.51.11.138:8080/users';
+const API_DOG_BASE_URL = 'http://10.51.11.138:8080/dogs';
 
 // Función para manejar el inicio de sesión
 export const handleLogin = async (email, password) => {
